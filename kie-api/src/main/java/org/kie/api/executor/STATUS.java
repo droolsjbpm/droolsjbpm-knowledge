@@ -18,10 +18,8 @@ package org.kie.api.executor;
 
 /**
  * Possible statuses of the request
- *
+ * status are QUEUED -> SCHEDULED (Queue assigned) -> RUNNING -> DONE / CANCELLED
  */
 public enum STATUS {
-   QUEUED, DONE, CANCELLED, ERROR, RETRYING, RUNNING;
-
-
+   QUEUED, DONE, CANCELLED, ERROR, RETRYING, RUNNING, SCHEDULED;
 }
