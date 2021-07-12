@@ -37,11 +37,11 @@ public interface TaskPersistenceContext {
 
     Task findTask(Long taskId);
 
-    Task persistTask(Task task);
+    Task persistTask(Task task, TaskOperationInfo info);
+    
+    Task updateTask(Task task, TaskOperationInfo info);
 
-    Task updateTask(Task task);
-
-    Task removeTask(Task task);
+    Task removeTask(Task task, TaskOperationInfo info);
 
     Group findGroup(String groupId);
 
@@ -85,9 +85,9 @@ public interface TaskPersistenceContext {
 
     Attachment removeAttachment(Attachment attachment);
 
-    Attachment removeAttachmentFromTask(Task task, long attachmentId);
+    Attachment removeAttachmentFromTask(Task task, long attachmentId, String userId);
 
-    Attachment addAttachmentToTask(Attachment attachment, Task task);
+    Attachment addAttachmentToTask(Attachment attachment, Task task, String userId);
 
     Comment findComment(Long commentId);
 
@@ -97,9 +97,9 @@ public interface TaskPersistenceContext {
 
     Comment removeComment(Comment comment);
 
-    Comment removeCommentFromTask(Comment comment, Task task);
+    Comment removeCommentFromTask(Comment comment, Task task, String userId);
 
-    Comment addCommentToTask(Comment comment, Task task);
+    Comment addCommentToTask(Comment comment, Task task, String userId);
 
     Deadline findDeadline(Long deadlineId);
 
